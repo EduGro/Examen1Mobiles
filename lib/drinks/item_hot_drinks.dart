@@ -24,17 +24,21 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
           color: Color.fromARGB(0xFF, 0xBC, 0xB0, 0xA1),
           child: (
             ListTile(
-              leading: Image.network(drink.productImage),
+              leading: Image.network(drink.productImage,),
               title: Text(
                 "${drink.productTitle}",
-                style: TextStyle(fontFamily: 'Akzidenz-Grotesk BQ Medium')
+                style: TextStyle(
+                  fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                  fontSize: 15,
+                )
               ),
               subtitle: Column(
                 children: [
                   Text(
                     "${drink.productDescription}",
                     style: TextStyle(
-                      fontFamily: 'Akzidenz-Grotesk BQ Medium', 
+                      fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                      fontSize: 20,
                       color: Colors.white
                     )
                   ),
@@ -47,7 +51,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                   ),
                 ],
               ),
-              trailing: drink.liked?Icon(Icons.favorite_outline):Icon(Icons.favorite), 
+              trailing: drink.liked?Icon(Icons.favorite_outline):Icon(Icons.favorite, color: Colors.black), 
             )
           ),
         ),
