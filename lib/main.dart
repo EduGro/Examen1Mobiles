@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/login/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/home.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         //primaryColor: PRIMARY_COLOR,
         primarySwatch: PRIMARY_COLOR,
       ),
-      home: Home(title: APP_TITLE),
+      home: Inicio(title: APP_TITLE),
     );
   }
 }
