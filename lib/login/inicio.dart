@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:estructura_practica_1/login/ingreso.dart';
+import 'package:estructura_practica_1/login/registro.dart';
 import 'package:flutter/material.dart';
 
 class Inicio extends StatefulWidget {
@@ -48,27 +50,30 @@ class _InicioState extends State<Inicio> {
                 minWidth: 350,
                 color: Color(0xFF8B8175),
                 onPressed: () {
-                  //Navigator.of(context).pop("Clase de las 7am");
-                  Null;
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Registro()),
+                  );
                 },
               ),
             ),
-            MaterialButton(
-              child: Text(
-                "Iniciar Sesion",
-                style: TextStyle(
-                  color: Colors.black,
+            Container(
+              padding: new EdgeInsets.only(top: 20.0),
+              child: MaterialButton(
+                child: Text(
+                  "Iniciar Sesion",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
+                minWidth: 350,
+                color: Color(0xFF8B8175),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Ingreso()),
+                  );
+                  //Navigator.of(context).pop("Clase de las 7am");
+                },
               ),
-              minWidth: 350,
-              color: Color(0xFF8B8175),
-              onPressed: () {
-                //Navigator.of(context).push(
-                //   MaterialPageRoute(builder: (context) => SecondPage()),
-                // );
-                //Navigator.of(context).pop("Clase de las 7am");
-                Null;
-              },
             ),
           ],
         ),
