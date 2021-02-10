@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          IconButton(
+          /*IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
               Navigator.of(context).push(
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
                 MaterialPageRoute(builder: (_) => Profile()),
               );
             },
-          ),
+          ),*/
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {},
@@ -58,6 +58,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+      drawer: Profile(),
     );
   }
 
@@ -65,7 +66,9 @@ class _HomeState extends State<Home> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return HotDrinksPage(drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),);
+          return HotDrinksPage(
+            drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),
+          );
         },
       ),
     );
