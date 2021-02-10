@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         //primaryColor: PRIMARY_COLOR,
         primarySwatch: PRIMARY_COLOR,
+        fontFamily: 'Akzidenz-Grotesk BQ',
       ),
       home: Inicio(title: APP_TITLE),
     );

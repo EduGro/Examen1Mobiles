@@ -35,11 +35,23 @@ flutter:
     - assets/images/app_icon.png
   #   - images/a_dot_ham.jpeg
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: Akzidenz-Grotesk BQ
+      fonts:
+        - asset: assets/fonts/AkzidenzGroteskBQ-Reg.ttf
+          style: normal
+        - asset: assets/fonts/AkzidenzGroteskBQ-Light.ttf
+          #weight: 100
+          style: normal
+        - asset: assets/fonts/AkzidenzGroteskBQ-LightIt.ttf
+          style: italic
+          #weight: 100
+        - asset: assets/fonts/AkzidenzGroteskBQ-MedItalic.ttf
+          style: italic
+          #weight: 200
+        - asset: assets/fonts/AkzidenzGroteskBQ-Medium.ttf
+          style: normal
+          #weight: 200
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

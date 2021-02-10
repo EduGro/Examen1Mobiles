@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/cart/payment_methods.dart';
 
 class ItemHotDrinksDetailsPage extends StatefulWidget {
   final ProductHotDrinks drink;
@@ -57,7 +58,8 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                         children: [
                           Text("${drink.productTitle}",
                             style: TextStyle(
-                              fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                              fontFamily: 'Akzidenz-Grotesk BQ',
+                              
                               fontSize: 30,
                             ),
                           ),
@@ -212,7 +214,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ),
                             ),
                             onPressed: (){
-                            
+                              
                             },
                           ),
                         ],
@@ -235,7 +237,13 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ),
                             ),
                             onPressed: (){
-                            
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return PaymentMethodsPage();
+                                  },
+                                ),
+                              );
                             },
                           ),
                         ],
