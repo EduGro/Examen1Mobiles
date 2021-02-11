@@ -41,37 +41,67 @@ class _ItemCartState extends State<ItemCart> {
                   ),
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("${prod.productTitle}",
-                      style: TextStyle(
-                        fontFamily: 'Akzidenz-Grotesk BQ',
-                        fontSize: 15,
-                      ),
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(8.0),
+                          width: 100,
+                          child: Column (
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("${prod.productTitle}",
+                                style: TextStyle(
+                                  fontFamily: 'Akzidenz-Grotesk BQ',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: Text("${prod.productDesc}",
+                                  style: TextStyle(
+                                    fontFamily: 'Akzidenz-Grotesk BQ',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 13,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            prod.productLiked?Icon(Icons.favorite_outline):Icon(Icons.favorite, color: Colors.black),
+                            IconButton(icon: Icon(Icons.delete), onPressed: _delProd),
+                          ],
+                        )
+                      ],
                     ),
-                    /*
-                    SizedBox(
-                      height: 12,
+                    Row(
+                      children: [
+                        IconButton(icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
+                        Text(
+                          "${prod.productAmount}",
+                          style: TextStyle(
+                                fontFamily: 'Akzidenz-Grotesk BQ',
+                                fontSize: 18,
+                              ),
+                        ),
+                        IconButton(icon: Icon(Icons.remove_circle_outline), onPressed: _remProd),
+                        Text(
+                          "${prod.productPrice}",
+                          style: TextStyle(
+                                fontFamily: 'Akzidenz-Grotesk BQ',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 25,
+                              ),
+                        ),
+                      ],
                     ),
-                    Text("${widget.product.productTitle}"),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    IconButton(icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Text("${widget.product.productAmount}"),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Text("${widget.product.productPrice}"),
-                    SizedBox(
-                      height: 12,
-                    ),*/
                   ],
                 ),
               ],
@@ -94,5 +124,9 @@ class _ItemCartState extends State<ItemCart> {
       --widget.product.productAmount;
     });
     widget.onAmountUpdated(-1 * widget.product.productPrice);
+  }
+
+  void _delProd() {
+    //TODO
   }
 }

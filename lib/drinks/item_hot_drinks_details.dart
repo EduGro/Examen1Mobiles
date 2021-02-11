@@ -79,7 +79,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             children: <Widget>[
                               Text("${drink.productDescription}",
                                 style: TextStyle(
-                                  fontFamily: 'Akzidenz-Grotesk BQ Light',
+                                  fontFamily: 'Akzidenz-Grotesk BQ',
                                   fontSize: 20,
                                 ),
                               ),
@@ -100,8 +100,9 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                         Text(
                           "TAMAÑOS DISPONIBLES",
                           style: TextStyle(
-                            fontFamily: 'Akzidenz-Grotesk BQ Light',
+                            fontFamily: 'Akzidenz-Grotesk BQ',
                             fontSize: 15,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ],
@@ -113,7 +114,8 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                           Text(
                             "\$${drink.productPrice}",
                             style: TextStyle(
-                              fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                              fontFamily: 'Akzidenz-Grotesk BQ',
+                              fontWeight: FontWeight.w600,
                               fontSize: 30,
                             ),
                           )
@@ -137,8 +139,8 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             child: Text(
                               "Chico",
                               style: TextStyle(
-                                fontFamily: 'Akzidenz-Grotesk BQ Light',
-                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Akzidenz-Grotesk BQ',
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black
                               ),
                             ),
@@ -158,8 +160,8 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             child: Text(
                               "Mediano",
                               style: TextStyle(
-                                fontFamily: 'Akzidenz-Grotesk BQ Light',
-                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Akzidenz-Grotesk BQ',
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black
                               ),
                             ),
@@ -179,8 +181,8 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             child: Text(
                               "Grande",
                               style: TextStyle(
-                                fontFamily: 'Akzidenz-Grotesk BQ Light',
-                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Akzidenz-Grotesk BQ',
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black
                               ),
                             ),
@@ -212,17 +214,20 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             child: Text(
                               "AGREGAR AL CARRITO",
                               style: TextStyle(
-                                fontFamily: 'Akzidenz-Grotesk BQ Light',
+                                fontFamily: 'Akzidenz-Grotesk BQ',
                                 fontSize: 10,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
                             ),
                             onPressed: (){
                               ProductItemCart prod = ProductItemCart(
                                 productTitle: drink.productTitle, 
-                                productAmount: drink.productAmount, 
+                                productAmount: ++drink.productAmount, 
                                 productPrice: drink.productPrice,
-                                productImage: drink.productImage
+                                productImage: drink.productImage,
+                                productDesc: drink.productDescription,
+                                productLiked: drink.liked
                               );
                               cartList.add(prod);
                               _scaffoldKey.currentState
@@ -248,8 +253,9 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             child: Text(
                               "COMPRAR AHORA",
                               style: TextStyle(
-                                fontFamily: 'Akzidenz-Grotesk BQ Light',
+                                fontFamily: 'Akzidenz-Grotesk BQ',
                                 fontSize: 10,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
                             ),

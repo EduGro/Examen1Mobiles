@@ -41,7 +41,8 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                           Text(
                             "${drink.productTitle}",
                             style: TextStyle(
-                            fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                            fontFamily: 'Akzidenz-Grotesk BQ',
+                            fontWeight: FontWeight.bold,
                             fontSize: 20,
                             ),
                           ),
@@ -52,7 +53,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                               child: Text(
                                 "${drink.productDescription}",
                                 style: TextStyle(
-                                  fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                                  fontFamily: 'Akzidenz-Grotesk BQ',
                                   fontSize: 20,
                                   color: Colors.white
                                 )
@@ -62,7 +63,8 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                           Text(
                             "\$${drink.productPrice}",
                             style: TextStyle(
-                              fontFamily: 'Akzidenz-Grotesk BQ Medium',
+                              fontFamily: 'Akzidenz-Grotesk BQ',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
                             ),
                           ),
