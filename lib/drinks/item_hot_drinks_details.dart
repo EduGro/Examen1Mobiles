@@ -16,10 +16,12 @@ class ItemHotDrinksDetailsPage extends StatefulWidget {
 }
 
 class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     var drink = widget.drink;
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("${drink.productTitle}"),
       ),
@@ -219,9 +221,17 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ProductItemCart prod = ProductItemCart(
                                 productTitle: drink.productTitle, 
                                 productAmount: drink.productAmount, 
-                                productPrice: drink.productPrice
+                                productPrice: drink.productPrice,
+                                productImage: drink.productImage
                               );
                               cartList.add(prod);
+                              _scaffoldKey.currentState
+                              ..hideCurrentSnackBar()
+                              ..showSnackBar(
+                                SnackBar(
+                                  content: Text("Producto añadido al carrito")
+                                ),
+                              );
                             },
                           ),
                         ],
