@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key key}) : super(key: key);
+  final String title;
+  final Map<String, String> usuario;
+  const Profile({Key key, this.title, this.usuario}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class Profile extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  PROFILE_NAME,
+                  usuario["nombre"],
                   style: Theme.of(context)
                       .textTheme
                       .headline4

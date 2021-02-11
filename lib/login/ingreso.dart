@@ -12,10 +12,47 @@ class Ingreso extends StatefulWidget {
 }
 
 class _IngresoState extends State<Ingreso> {
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passController = new TextEditingController();
+  final List<Map<String, String>> _listElements = [
+    {
+      "nombre": "John Doe",
+      "pass": "doej",
+      "email": "jdoej@gmail.com",
+    },
+    {
+      "nombre": "Jane Doe",
+      "pass": "doej",
+      "email": "janeDoe@gmail.com",
+    },
+    {
+      "nombre": "Juan Perez",
+      "pass": "perj",
+      "email": "jperez@gmail.com",
+    },
+    {
+      "nombre": "Emongg",
+      "pass": "dva",
+      "email": "zarya@gmail.com",
+    },
+  ];
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void showSnacks(String text) {
+    _scaffoldKey.currentState
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(text),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF214254),
+      key: _scaffoldKey,
       body: Center(
         child: Column(
           children: [
@@ -52,6 +89,7 @@ class _IngresoState extends State<Ingreso> {
                     ),
                   ),
                   TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         hintText: 'John Doe',
                         fillColor: Colors.white,
@@ -75,6 +113,7 @@ class _IngresoState extends State<Ingreso> {
                     ),
                   ),
                   TextField(
+                    controller: passController,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
@@ -99,10 +138,25 @@ class _IngresoState extends State<Ingreso> {
                 height: 50,
                 color: Color(0xFF8B8175),
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => Home(title: APP_TITLE)),
-                  );
+                  var email = emailController.text;
+                  var pass = passController.text;
+                  if (email == "" || pass == "") {
+                    showSnacks("Usuario o contraseña faltantes");
+                  } else {
+                    var probablyPass = _listElements.indexWhere((element) =>
+                        element["nombre"] == email && element["pass"] == pass);
+                    print(probablyPass);
+                    if (probablyPass >= 0) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Home(
+                              title: APP_TITLE,
+                              usuario: _listElements[probablyPass]),
+                        ),
+                      );
+                    }
+                    showSnacks("Usuario o contraseña incorrectos");
+                  }
                 },
               ),
             ),
@@ -119,9 +173,8 @@ class _IngresoState extends State<Ingreso> {
                       ),
                       recognizer: new TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Ingreso()),
-                          );
+                          showSnacks(
+                              "Enviar un email por favor a: esteCorreo@no.existe");
                         },
                     ),
                   ],

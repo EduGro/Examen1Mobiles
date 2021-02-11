@@ -8,7 +8,8 @@ import 'package:estructura_practica_1/utils/constants.dart';
 
 class Home extends StatefulWidget {
   final String title;
-  Home({Key key, this.title}) : super(key: key);
+  final Map<String, String> usuario;
+  Home({Key key, this.title, this.usuario}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
