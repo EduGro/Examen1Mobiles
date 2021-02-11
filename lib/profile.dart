@@ -2,6 +2,8 @@ import 'package:estructura_practica_1/login/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 
+import 'cart/cart.dart';
+
 class Profile extends StatelessWidget {
   final String title;
   final Map<String, String> usuario;
@@ -15,7 +17,17 @@ class Profile extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Cart(
+                      productsList: cartList,
+                    );
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -49,7 +61,7 @@ class Profile extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                Text(PROFILE_EMAIL),
+                Text(usuario["email"]),
                 SizedBox(
                   height: 16,
                 ),
@@ -85,7 +97,8 @@ class Profile extends StatelessWidget {
                       child: Text(PROFILE_LOGOUT),
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Inicio()),
+                          MaterialPageRoute(
+                              builder: (context) => Inicio(title: title)),
                         );
                       },
                     ),

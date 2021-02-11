@@ -145,7 +145,6 @@ class _IngresoState extends State<Ingreso> {
                   } else {
                     var probablyPass = _listElements.indexWhere((element) =>
                         element["nombre"] == email && element["pass"] == pass);
-                    print(probablyPass);
                     if (probablyPass >= 0) {
                       Navigator.of(context).push(
                         MaterialPageRoute(

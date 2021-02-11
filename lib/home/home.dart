@@ -16,18 +16,33 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void showSnacks(String text) {
+    _scaffoldKey.currentState
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(text),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
           /*IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
-              Navigator.of(context).push(
-                // TODO: Eliminar este boton y adaptar todo el contenido de la pagina de perfil en un Drawer aqui en la pantalla Home
-                MaterialPageRoute(builder: (_) => Profile()),
+              Drawer(
+                child: Profile(
+                  title: widget.title,
+                  usuario: widget.usuario,
+                ),
               );
             },
           ),*/
@@ -37,7 +52,9 @@ class _HomeState extends State<Home> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return Cart(productsList: cartList,);
+                    return Cart(
+                      productsList: cartList,
+                    );
                   },
                 ),
               );
@@ -62,14 +79,21 @@ class _HomeState extends State<Home> {
             title: "Granos",
             image: "https://i.imgur.com/5MZocC1.png",
           ),
-          ItemHome(
-            // TODO: Al hacer clic, que muestre un snackbar de "Proximamente"
-            title: "Tazas",
-            image: "https://i.imgur.com/fMjtSpy.png",
+          GestureDetector(
+            onTap: () => showSnacks("Proximamente"),
+            child: ItemHome(
+              title: "Tazas",
+              image: "https://i.imgur.com/fMjtSpy.png",
+            ),
           ),
         ],
       ),
-      drawer: Profile(),
+      drawer: Drawer(
+        child: Profile(
+          title: widget.title,
+          usuario: widget.usuario,
+        ),
+      ),
     );
   }
 
@@ -95,5 +119,9 @@ class _HomeState extends State<Home> {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) => null),
     );
+  }
+
+  void _openTazasPage() {
+    showSnacks("Proximamente");
   }
 }

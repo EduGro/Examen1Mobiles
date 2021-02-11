@@ -12,7 +12,22 @@ class Registro extends StatefulWidget {
 }
 
 class _RegistroState extends State<Registro> {
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passController = new TextEditingController();
+  TextEditingController nameController = new TextEditingController();
   bool checkedValue = true;
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void showSnacks(String text) {
+    _scaffoldKey.currentState
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(text),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +68,7 @@ class _RegistroState extends State<Registro> {
                     ),
                   ),
                   TextField(
+                    controller: nameController,
                     decoration: InputDecoration(
                         hintText: 'Anna Smitth',
                         fillColor: Colors.white,
@@ -76,6 +92,7 @@ class _RegistroState extends State<Registro> {
                     ),
                   ),
                   TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         hintText: 'Annasmith@xpert.com',
                         fillColor: Colors.white,
@@ -100,6 +117,7 @@ class _RegistroState extends State<Registro> {
                   ),
                   TextField(
                     obscureText: true,
+                    controller: passController,
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
                         borderSide:
@@ -147,10 +165,23 @@ class _RegistroState extends State<Registro> {
                 height: 50,
                 color: Color(0xFF8B8175),
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => Home(title: APP_TITLE)),
-                  );
+                  var email = emailController.text;
+                  var pass = passController.text;
+                  var name = nameController.text;
+                  if (email == "" || pass == "" || name == "") {
+                    showSnacks("Usuario o contraseña faltantes");
+                  } else if (checkedValue) {
+                    Map<String, String> user = {
+                      "nombre": name,
+                      "pass": pass,
+                      "email": email,
+                    };
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Home(title: APP_TITLE, usuario: user)),
+                    );
+                  }
                 },
               ),
             ),
