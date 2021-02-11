@@ -95,16 +95,6 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                 ),
               ),
             ),
-            Container(
-              
-            ),
-                    /*Text(
-                      "\$${drink.productPrice}",
-                      style: TextStyle(
-                        fontFamily: 'Akzidenz-Grotesk BQ Medium',
-                        fontSize: 25,
-                      )
-                    ),*/
           ],
         ),
       ),

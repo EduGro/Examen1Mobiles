@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:estructura_practica_1/models/product_item_cart.dart';
 
 // home
 const String APP_TITLE = "Snacks shop";
@@ -33,3 +34,6 @@ const Color PRIMARY_COLOR = const MaterialColor(
 );
 
 //Color(0xFF204254); //Colors.blue; //0xFF204254
+
+//Carrito
+List<ProductItemCart> cartList = [];

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/cart/payment_methods.dart';
+import 'package:estructura_practica_1/models/product_item_cart.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 
 class ItemHotDrinksDetailsPage extends StatefulWidget {
   final ProductHotDrinks drink;
@@ -59,7 +61,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                           Text("${drink.productTitle}",
                             style: TextStyle(
                               fontFamily: 'Akzidenz-Grotesk BQ',
-                              
+                              fontWeight: FontWeight.bold,
                               fontSize: 30,
                             ),
                           ),
@@ -110,7 +112,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                             "\$${drink.productPrice}",
                             style: TextStyle(
                               fontFamily: 'Akzidenz-Grotesk BQ Medium',
-                              fontSize: 25,
+                              fontSize: 30,
                             ),
                           )
                         ],
@@ -214,7 +216,12 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ),
                             ),
                             onPressed: (){
-                              
+                              ProductItemCart prod = ProductItemCart(
+                                productTitle: drink.productTitle, 
+                                productAmount: drink.productAmount, 
+                                productPrice: drink.productPrice
+                              );
+                              cartList.add(prod);
                             },
                           ),
                         ],
@@ -237,13 +244,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ),
                             ),
                             onPressed: (){
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return PaymentMethodsPage();
-                                  },
-                                ),
-                              );
+                              
                             },
                           ),
                         ],

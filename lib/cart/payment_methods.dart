@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/models/product_cart.dart';
 
 class PaymentMethodsPage extends StatefulWidget {
-  final ProductHotDrinks drink;
+  final dynamic prod;
   PaymentMethodsPage({
     Key key,
-    @required this.drink,
+    @required this.prod,
   }) : super(key: key);
 
   @override
@@ -15,10 +15,10 @@ class PaymentMethodsPage extends StatefulWidget {
 class PaymentMethodsPageState extends State<PaymentMethodsPage> {
   @override
   Widget build(BuildContext context) {
-    var drink = widget.drink;
+    var drink = widget.prod;
     return Scaffold(
       appBar: AppBar(
-        title: Text("${drink.productTitle}"),
+        title: Text("Pagos"),
       ),
       body: Container(
         ),
