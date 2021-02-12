@@ -54,162 +54,168 @@ class _IngresoState extends State<Ingreso> {
       backgroundColor: Color(0xFF214254),
       key: _scaffoldKey,
       body: Center(
-        child: Column(
-          children: [
-            Container(
-              padding: new EdgeInsets.only(top: 100.0),
-              child: Icon(
-                Icons.local_cafe,
-                color: Colors.white,
-                size: 60,
-              ),
-            ),
-            Container(
-              child: Text(
-                'cupping',
-                style: TextStyle(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: new EdgeInsets.only(top: 100.0),
+                child: Icon(
+                  Icons.local_cafe,
                   color: Colors.white,
-                  fontSize: 70,
-                  fontWeight: FontWeight.normal,
+                  size: 60,
                 ),
               ),
-            ),
-            Container(
-              padding: new EdgeInsets.only(top: 75.0, left: 20.0, right: 20.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      "Nombre Completo",
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                        hintText: 'John Doe',
-                        fillColor: Colors.white,
-                        filled: true),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: new EdgeInsets.only(top: 15.0, left: 20.0, right: 20.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      "Contraseña",
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: passController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 0.0),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: new EdgeInsets.only(top: 30.0),
-              child: MaterialButton(
+              Container(
                 child: Text(
-                  "ENTRAR",
+                  'cupping',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
+                    fontSize: 70,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
-                minWidth: 350,
-                height: 50,
-                color: Color(0xFF8B8175),
-                onPressed: () {
-                  var email = emailController.text;
-                  var pass = passController.text;
-                  if (email == "" || pass == "") {
-                    showSnacks("Usuario o contraseña faltantes");
-                  } else {
-                    var probablyPass = _listElements.indexWhere((element) =>
-                        element["nombre"] == email && element["pass"] == pass);
-                    if (probablyPass >= 0) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => Home(
-                              title: APP_TITLE,
-                              usuario: _listElements[probablyPass]),
+              ),
+              Container(
+                padding:
+                    new EdgeInsets.only(top: 75.0, left: 20.0, right: 20.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        "Nombre Completo",
+                        textAlign: TextAlign.left,
+                        style: new TextStyle(
+                          color: Colors.white,
                         ),
-                      );
+                      ),
+                    ),
+                    TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                          hintText: 'John Doe',
+                          fillColor: Colors.white,
+                          filled: true),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding:
+                    new EdgeInsets.only(top: 15.0, left: 20.0, right: 20.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        "Contraseña",
+                        textAlign: TextAlign.left,
+                        style: new TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    TextField(
+                      controller: passController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 0.0),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: new EdgeInsets.only(top: 30.0),
+                child: MaterialButton(
+                  child: Text(
+                    "ENTRAR",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  minWidth: 350,
+                  height: 50,
+                  color: Color(0xFF8B8175),
+                  onPressed: () {
+                    var email = emailController.text;
+                    var pass = passController.text;
+                    if (email == "" || pass == "") {
+                      showSnacks("Usuario o contraseña faltantes");
+                    } else {
+                      var probablyPass = _listElements.indexWhere((element) =>
+                          element["nombre"] == email &&
+                          element["pass"] == pass);
+                      if (probablyPass >= 0) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Home(
+                                title: APP_TITLE,
+                                usuario: _listElements[probablyPass]),
+                          ),
+                        );
+                      }
+                      showSnacks("Usuario o contraseña incorrectos");
                     }
-                    showSnacks("Usuario o contraseña incorrectos");
-                  }
-                },
-              ),
-            ),
-            Container(
-              padding: new EdgeInsets.only(top: 40.0),
-              child: new RichText(
-                textAlign: TextAlign.center,
-                text: new TextSpan(
-                  children: [
-                    new TextSpan(
-                      text: '¿Olvidaste tu password?',
-                      style: new TextStyle(
-                        color: Colors.white,
-                      ),
-                      recognizer: new TapGestureRecognizer()
-                        ..onTap = () {
-                          showSnacks(
-                              "Enviar un email por favor a: esteCorreo@no.existe");
-                        },
-                    ),
-                  ],
+                  },
                 ),
               ),
-            ),
-            Container(
-              padding: new EdgeInsets.only(top: 75.0),
-              child: new RichText(
-                textAlign: TextAlign.center,
-                text: new TextSpan(
-                  children: [
-                    new TextSpan(
-                      text: '¿Aún no tienes una cuenta?\n',
-                      style: new TextStyle(
-                        color: Colors.white,
+              Container(
+                padding: new EdgeInsets.only(top: 40.0),
+                child: new RichText(
+                  textAlign: TextAlign.center,
+                  text: new TextSpan(
+                    children: [
+                      new TextSpan(
+                        text: '¿Olvidaste tu password?',
+                        style: new TextStyle(
+                          color: Colors.white,
+                        ),
+                        recognizer: new TapGestureRecognizer()
+                          ..onTap = () {
+                            showSnacks(
+                                "Enviar un email por favor a: esteCorreo@no.existe");
+                          },
                       ),
-                    ),
-                    new TextSpan(
-                      text: 'REGÍSTRATE',
-                      style: new TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
-                      ),
-                      recognizer: new TapGestureRecognizer()
-                        ..onTap = () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Registro()),
-                          );
-                        },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+              Container(
+                padding: new EdgeInsets.only(top: 75.0),
+                child: new RichText(
+                  textAlign: TextAlign.center,
+                  text: new TextSpan(
+                    children: [
+                      new TextSpan(
+                        text: '¿Aún no tienes una cuenta?\n',
+                        style: new TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      new TextSpan(
+                        text: 'REGÍSTRATE',
+                        style: new TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer: new TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => Registro()),
+                            );
+                          },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
