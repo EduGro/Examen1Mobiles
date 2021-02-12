@@ -29,16 +29,18 @@ class _CartState extends State<Cart> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: ListView.builder(
-              itemCount: widget.productsList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ItemCart(
-                  onAmountUpdated: _priceUpdate,
-                  product: widget.productsList[index],
-                );
-              },
+          SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: ListView.builder(
+                itemCount: widget.productsList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ItemCart(
+                    onAmountUpdated: _priceUpdate,
+                    product: widget.productsList[index],
+                  );
+                },
+              ),
             ),
           ),
           Padding(
