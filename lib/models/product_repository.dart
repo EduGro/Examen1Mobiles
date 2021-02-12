@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 
@@ -9,9 +10,41 @@ class ProductRepository {
     // ----------------------       Tazas      ----------------------------//
     // ----------------------              ----------------------------//
 
-    //if (prodType == ProductType.POSTRES) {
-    // TODO: Agregar al menos 5 productos "postres"
-    //}
+    if (prodType == ProductType.POSTRES) if (prodType == ProductType.POSTRES)
+      return <ProductDesserts>[
+        ProductDesserts(
+          productTitle: "Flan",
+          productDescription: "Delicioso flan casero de la casa",
+          productImage: "https://i.imgur.com/79AmRxn.jpg",
+          productAmount: 0,
+        ),
+        ProductDesserts(
+          productTitle: "Pastel de chocolate",
+          productDescription:
+              "Rebanada de pastel preparado con los mas finos ingredientes",
+          productImage: "https://i.imgur.com/XE3wvTg.jpg",
+          productAmount: 0,
+        ),
+        ProductDesserts(
+          productTitle: "Tiramisu",
+          productDescription: "Postre de origen italiano con varias capas",
+          productImage: "https://i.imgur.com/ezCt53v.jpg",
+          productAmount: 0,
+        ),
+        ProductDesserts(
+          productTitle: "Cupcake de Red Velvet",
+          productDescription: "Pastelillo de color rojo sabor chocolate",
+          productImage: "https://i.imgur.com/2IXC3LM.jpg",
+          productAmount: 0,
+        ),
+        ProductDesserts(
+          productTitle: "Galleta de chispas de Chocolate",
+          productDescription:
+              "Galleta prepara a mano con los mas finos ingredientes",
+          productImage: "https://i.imgur.com/MtiNlye.jpg",
+          productAmount: 0,
+        ),
+      ];
 
     // ----------------------              ----------------------------//
     // ----------------------       Granos      ----------------------------//
