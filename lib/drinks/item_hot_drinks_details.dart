@@ -208,7 +208,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                       child: Column(
                         children: [
                           MaterialButton(
-                            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                             padding: EdgeInsets.all(20.0),
                             color: Color.fromARGB(0xFF, 0xBC, 0xB0, 0xA1),
                             child: Text(

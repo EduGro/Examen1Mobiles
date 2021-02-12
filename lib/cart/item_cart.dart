@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 
 class ItemCart extends StatefulWidget {
   final dynamic product;
@@ -16,6 +17,13 @@ class ItemCart extends StatefulWidget {
 class _ItemCartState extends State<ItemCart> {
   @override
   Widget build(BuildContext context) {
+
+    void _delProd() {
+    setState(() {
+      //cartList.remove(widget.product);
+    });
+  }
+
     var prod = widget.product;
     return Card(
       color: Color.fromARGB(0xFF, 0xEC, 0x97, 0x62),
@@ -76,7 +84,7 @@ class _ItemCartState extends State<ItemCart> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             prod.productLiked?Icon(Icons.favorite_outline):Icon(Icons.favorite, color: Colors.black),
-                            IconButton(icon: Icon(Icons.delete), onPressed: _delProd),
+                            //IconButton(icon: Icon(Icons.delete), onPressed: _delProd),
                           ],
                         )
                       ],
@@ -124,9 +132,5 @@ class _ItemCartState extends State<ItemCart> {
       --widget.product.productAmount;
     });
     widget.onAmountUpdated(-1 * widget.product.productPrice);
-  }
-
-  void _delProd() {
-    //TODO
   }
 }
