@@ -33,6 +33,9 @@ flutter:
 
   assets:
     - assets/images/app_icon.png
+    - assets/images/paypal.png
+    - assets/images/credcard.png
+    - assets/images/giftcard.png
   #   - images/a_dot_ham.jpeg
 
   fonts:
