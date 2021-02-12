@@ -71,7 +71,6 @@ class _InicioState extends State<Inicio> {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => Ingreso()),
                   );
-                  //Navigator.of(context).pop("Clase de las 7am");
                 },
               ),
             ),

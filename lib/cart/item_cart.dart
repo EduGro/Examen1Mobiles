@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/utils/constants.dart';
 
 class ItemCart extends StatefulWidget {
   final dynamic product;

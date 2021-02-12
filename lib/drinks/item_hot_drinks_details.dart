@@ -247,7 +247,7 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                       child: Column(
                         children: [
                           MaterialButton(
-                            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                             padding: EdgeInsets.all(20.0),
                             color: Color.fromARGB(0xFF, 0xBC, 0xB0, 0xA1),
                             child: Text(
@@ -260,7 +260,23 @@ class ItemHotDrinksDetailsPageState extends State<ItemHotDrinksDetailsPage> {
                               ),
                             ),
                             onPressed: (){
-                              
+                              List<ProductItemCart> productList = [];
+                              ProductItemCart prod = ProductItemCart(
+                                productTitle: widget.drink.productTitle, 
+                                productAmount: ++widget.drink.productAmount, 
+                                productPrice: widget.drink.productPrice,
+                                productImage: widget.drink.productImage,
+                                productDesc: widget.drink.productDescription,
+                                productLiked: widget.drink.liked
+                              );
+                              productList.add(prod);
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return PaymentMethodsPage(productsList: productList);
+                                  },
+                                ),
+                              );
                             },
                           ),
                         ],
